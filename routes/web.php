@@ -11,11 +11,28 @@
 |
 */
 
-Route::get('/', function () {
-    return view('badar');
+Route::get('/welcome', function () {
+    return view('welcome');
 });
 
-/*Route::get('/badar', function () {
-    return view('badar');
+/*Route::get('/index', function () {
+	echo "Uji Coba route dengan method GET";
 });*/
 
+Route::get('/show/{id}', function ($id) {
+	echo "Nilai Parameter Adalah ".$id;
+});
+
+Route::get('/edit/{nama}', function ($nama) {
+	echo "Nilai Parameter Adalah ".$nama;
+})->where('nama','[A-Za-z]+');
+
+Route::get('/index', function () {
+	echo "<a href='".route('create')."'>Akses Route dengan nama </a>";
+});
+
+Route::get('/create', function () {
+	echo "Route diakses menggunakan nama";
+})->name('create');
+
+Route::get('/produk', 'produkController@index');
