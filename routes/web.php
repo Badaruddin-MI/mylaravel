@@ -36,3 +36,5 @@ Route::get('/create', function () {
 })->name('create');
 
 Route::get('/produk', 'produkController@index');
+
+Route::get('/produk/show', 'produkController@show');
